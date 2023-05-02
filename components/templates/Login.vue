@@ -24,7 +24,7 @@ const form = reactive<ILoginInput>({
   username: '',
   password: '',
 });
-const router  = useRouter()
+const router = useRouter()
 const authStore = useAuthStore()
 const { setToken } = authStore
 

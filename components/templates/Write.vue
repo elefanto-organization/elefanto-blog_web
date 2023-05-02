@@ -20,6 +20,7 @@ import { ICategory, IBlogInput } from '@/types/index'
 import { useRouter } from 'vue-router'
 export default {
   async setup() {
+    const router = useRouter();
     if (!process.server) {
       const { QuillEditor } = await import('@vueup/vue-quill');
       const { vueApp } = useNuxtApp();
@@ -49,19 +50,21 @@ export default {
       chosenCategory.value = category
       blog.category = category.id
     }
-
-    const router  = useRouter()
+    console.log(router)
 
     const postArticle = async () => {
+
       try {
         const response = await $api.blog.postBlog(blog);
         console.log(response)
-        router.push('/')
+
       } catch (error) {
-        console.error(error);
+        alert(error);
+      } finally {
+        router.push('/')
       }
     }
-    return { blog, categories, selectCategory, postArticle, chosenCategory }
+    return { router, blog, categories, selectCategory, postArticle, chosenCategory }
   },
 };
 </script>

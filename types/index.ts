@@ -20,7 +20,7 @@ export interface Category {
 }
 
 export interface IBlogParams {
-  category?: string
+  category?: number | null
   author?: string
   search?: string
 }

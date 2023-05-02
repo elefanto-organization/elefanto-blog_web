@@ -13,12 +13,9 @@
         </div>
         <div>
           <div class="flex flex-col gap-4 mb-8 ml-[0] md:ml-36">
-            <input 
-              v-model="params.author"
-              class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="author" required />
               <input 
               v-model="params.search"
-              class=" flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="topic" required />
+              class=" flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="topic or author" required />
             </div>
           <molecules-categories 
             :categories="categories" 
@@ -38,7 +35,7 @@ import { toRaw, watch } from 'vue';
 const params = reactive<IBlogParams>({
   author: '',
   search: '',
-  category: ''
+  category: null
 });
 
 const blogs = ref<IBlogResponse[]>()
@@ -73,7 +70,7 @@ const getCategories = async () => {
 
 const selectCategory = (category: ICategory) => {
   chosenCategory.value = category
-  params.category = category.name
+  params.category = category.id
 }
 
 watch(
