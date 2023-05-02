@@ -23,9 +23,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import Prism from "prismjs";
-import "prismjs/themes/prism-okaidia.css"; // you can change
-
 import { IBlogResponse } from '@/types/index'
 import { useRoute } from 'vue-router'
 const { $api } = useNuxtApp();
@@ -43,10 +40,4 @@ const getBlog = async () => {
 }
 
 await getBlog()
-
-onMounted(() => {
-    window.Prism = window.Prism || {};
-    window.Prism.manual = true;
-    Prism.highlightAll(); // highlight your code on mount
-})
 </script>
