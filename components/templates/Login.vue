@@ -2,7 +2,7 @@
   <div class="flex-1 flex flex-col">
     <div class="max-w-6xl w-full py-12 px-4 mx-auto flex justify-center items-center">
       <div class="flex flex-col items-center w-80 mt-28 dark:text-white/80">
-        <div class="text-3xl leading-8 mb-4">Sign in with email</div>
+        <div class="text-3xl leading-8 mb-4">Sign in</div>
         <input 
         v-model="form.username"
         class="mt-12 w-80 mt-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="username" required />
