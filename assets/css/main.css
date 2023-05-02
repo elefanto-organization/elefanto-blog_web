@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .theme-light {
   --background: #f8f8f8;
   --text: #313131;

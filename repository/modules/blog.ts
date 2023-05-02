@@ -13,6 +13,10 @@ class BlogModule extends HttpFactory {
   async getCategories(): Promise<ICategory[]> {
     return await this.call<ICategory[]>('GET', `/category/`);
   }
+  async getBlog(id: Number): Promise<IBlogResponse> {
+    return await this.call<IBlogResponse>('GET', `${this.RESOURCE}/${id}`);
+  }
+
 }
 
 export default BlogModule;

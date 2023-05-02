@@ -20,8 +20,8 @@ export interface Category {
 }
 
 export interface IBlogParams {
-  category?: Category['id']
-  author?: Author['id']
+  category?: string
+  author?: string
   search?: string
 }
 export interface IBlogResponse {

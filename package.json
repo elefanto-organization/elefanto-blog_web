@@ -15,6 +15,7 @@
   "type": "module",
   "dependencies": {
     "@pinia/nuxt": "^0.4.9",
+    "@types/prismjs": "^1.26.0",
     "@vueup/vue-quill": "^1.1.1",
     "@vueuse/nuxt": "^10.1.0",
     "ohmyfetch": "^0.4.21",

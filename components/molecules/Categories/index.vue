@@ -6,14 +6,21 @@
         v-for="category in categories" 
         :key="category.id" 
         :category="category" 
-        @click="$emit('onSelectCategory', category)"
+        :active="category.id === chosenCategory?.id"
+        @click.native="handleChange(category)"
       />
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import { ICategory } from "~/types/index";
+const emit = defineEmits(['onSelectCategory'])
 const props = defineProps<{
   categories: ICategory[] | undefined;
+  chosenCategory: ICategory | null;
 }>();
+
+const handleChange = (category : ICategory) => {
+  emit('onSelectCategory', category)
+}
 </script>

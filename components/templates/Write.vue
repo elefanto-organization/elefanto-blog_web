@@ -7,7 +7,7 @@
           <quill-editor class="dark:text-white/80" style="height: 550px" theme="snow" toolbar="full" v-model:content="blog.text" contentType="html" />
           <button @click="postArticle()" class="mt-7 w-52 bg-black text-white px-6 py-2 text-sm rounded-3xl dark:bg-gray-100 dark:text-black">Submit</button>
         </div>
-        <molecules-categories :categories="categories" @onSelectCategory="selectCategory" />
+        <molecules-categories :categories="categories" :chosen-category="chosenCategory" @onSelectCategory="selectCategory" />
     </div>
     </div>
   </div>
@@ -33,6 +33,7 @@ export default {
     })
     const { $api } = useNuxtApp();
     const categories = ref<ICategory[]>()
+    const chosenCategory = ref<ICategory | null>(null)
 
     const getCategories = async () => {
       try {
@@ -45,6 +46,7 @@ export default {
     await getCategories()
 
     const selectCategory = (category: ICategory) => {
+      chosenCategory.value = category
       blog.category = category.id
     }
 
@@ -59,7 +61,7 @@ export default {
         console.error(error);
       }
     }
-    return { blog, categories, selectCategory, postArticle }
+    return { blog, categories, selectCategory, postArticle, chosenCategory }
   },
 };
 </script>
